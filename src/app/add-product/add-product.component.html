@@ -1,0 +1,49 @@
+<p>Add Prodcut</p>
+
+<form [formGroup]="addprodcut">
+
+  <div class="form-group">
+    <label >ID</label>
+    <input type="text" class="form-control" formControlName="id" placeholder="id">
+  </div>
+  <div class="alert alert-danger" *ngIf="this.addprodcut.controls['id'].invalid && this.addprodcut.controls['id'].touched">
+    <p *ngIf="this.addprodcut.controls['id'].hasError('required')">ID required</p>
+    <p *ngIf="this.addprodcut.controls['id'].hasError('minlength')">Id doit minimum 6 chiffre</p>
+  </div>
+
+  <div class="form-group">
+    <label >title</label>
+    <input type="text" class="form-control" formControlName="title" placeholder="title">
+  </div>
+  <div class="alert alert-danger" *ngIf="this.addprodcut.controls['title'].invalid && this.addprodcut.controls['title'].touched">
+    <p *ngIf="this.addprodcut.controls['title'].hasError('required')">title required</p>
+    <p *ngIf="this.addprodcut.controls['title'].hasError('minlength')">title doit minimum 6 caractère</p>
+  </div>
+  <div class="form-group">
+    <label >price</label>
+    <input type="number" class="form-control" formControlName="price" placeholder="price">
+    <div class="alert alert-danger" *ngIf="this.addprodcut.controls['price'].invalid && this.addprodcut.controls['price'].touched">
+      <p *ngIf="this.addprodcut.controls['price'].hasError('required')">price required</p>
+      <p *ngIf="this.addprodcut.controls['price'].hasError('min')">price pattern</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label >quantity</label>
+    <input type="number" class="form-control" formControlName="quantity" placeholder="quantity">
+    <div class="alert alert-danger" *ngIf="this.addprodcut.controls['quantity'].invalid && this.addprodcut.controls['quantity'].touched">
+      <p *ngIf="this.addprodcut.controls['price'].hasError('required')">quantity required</p>
+      <p *ngIf="this.addprodcut.controls['price'].hasError('min')">price pattern</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label >like</label>
+    <input type="number" class="form-control" formControlName="like" placeholder="number">
+    <div class="alert alert-danger" *ngIf="this.addprodcut.controls['like'].invalid && this.addprodcut.controls['like'].touched">
+      <p *ngIf="this.addprodcut.controls['like'].hasError('required')">like required</p>
+      <p *ngIf="this.addprodcut.controls['like'].hasError('min')">price pattern</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="addprodcut.invalid" (click)="save()" routerLink="/product">Submit</button>
+  <button type="submit" class="btn btn-primary" (click)=" reset() ">reset</button>
+</form>
+
